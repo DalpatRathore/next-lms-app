@@ -3,7 +3,7 @@ import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="">
       <h1 className="mr-10">Dalpat Rathore</h1>
       <UserButton afterSignOutUrl="/" />
     </main>
