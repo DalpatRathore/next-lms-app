@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { Pencil, PlusCircle } from "lucide-react";
+import { Loader2, Pencil, PlusCircle } from "lucide-react";
 import { useState } from "react";
 import {
   Form,
@@ -76,7 +76,12 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
     }
   };
   return (
-    <div className="mt-6 bg-slate-100 rounded-md p-4">
+    <div className="relative mt-6 bg-slate-100 rounded-md p-4">
+      {isUpdating && (
+        <div className="absolute w-full h-full bg-slate-500/20 top-0 right-0 rounded-md flex items-center justify-center">
+          <Loader2 className="w-6 h-6 text-sky-700 animate-spin"></Loader2>
+        </div>
+      )}
       <div className="font-medium flex items-center justify-between">
         Course Chapter
         <Button variant="ghost" onClick={toggleCreating}>
