@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import TitleForm from "./_components/TitleForm";
 import DescriptionForm from "./_components/DescriptionForm";
 import ImageForm from "./_components/ImageForm";
+import CategoryForm from "./_components/CategoryForm";
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
@@ -18,6 +19,13 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
       id: params.courseId,
     },
   });
+
+  const categories = await db.category.findMany({
+    orderBy: {
+      name: "asc",
+    },
+  });
+
   if (!course) {
     return redirect("/");
   }
@@ -58,6 +66,14 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
             courseId={course.id}
           ></DescriptionForm>
           <ImageForm initialData={course} courseId={course.id}></ImageForm>
+          <CategoryForm
+            initialData={course}
+            courseId={course.id}
+            options={categories.map(category => ({
+              label: category.name,
+              value: category.id,
+            }))}
+          ></CategoryForm>
         </div>
       </div>
     </div>
