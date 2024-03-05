@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Grip, Pencil } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 interface ChaptersListProps {
   items: Chapter[];
@@ -101,10 +102,13 @@ const ChaptersList = ({ items, onEdit, onReorder }: ChaptersListProps) => {
                       >
                         {chapter.isPublished ? "Published" : "Draft"}
                       </Badge>
-                      <Pencil
+                      <Button
                         onClick={() => onEdit(chapter.id)}
-                        className="w-4 h-4 cursor-pointer hover:opacity-75 transition"
-                      ></Pencil>
+                        variant="ghost"
+                        size="icon"
+                      >
+                        <Pencil className="w-4 h-4 cursor-pointer hover:opacity-75 transition"></Pencil>
+                      </Button>
                     </div>
                   </div>
                 )}
