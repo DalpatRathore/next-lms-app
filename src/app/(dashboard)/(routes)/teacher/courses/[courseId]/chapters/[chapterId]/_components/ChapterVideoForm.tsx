@@ -6,14 +6,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { ImageIcon, Pencil, PlusCircle, Video, VideoIcon } from "lucide-react";
+import { Pencil, PlusCircle, Video } from "lucide-react";
 import { useState } from "react";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { Chapter, MuxData } from "@prisma/client";
-import Image from "next/image";
 import FileUpload from "@/components/FileUpload";
 import MuxPlayer from "@mux/mux-player-react";
 
@@ -45,7 +43,6 @@ const ChapterVideoForm = ({
       videoUrl: initialData?.videoUrl || "",
     },
   });
-  const { isSubmitting } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
