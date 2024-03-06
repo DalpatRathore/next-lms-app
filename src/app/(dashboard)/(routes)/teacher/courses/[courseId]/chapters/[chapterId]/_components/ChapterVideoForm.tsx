@@ -8,20 +8,14 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { ImageIcon, Pencil, PlusCircle, Video, VideoIcon } from "lucide-react";
 import { useState } from "react";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
+
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
-import { Chapter, Course, MuxData } from "@prisma/client";
+import { Chapter, MuxData } from "@prisma/client";
 import Image from "next/image";
 import FileUpload from "@/components/FileUpload";
+import MuxPlayer from "@mux/mux-player-react";
 
 interface ChapterVideoFormProps {
   initialData: Chapter & { muxData?: MuxData | null };
@@ -94,7 +88,11 @@ const ChapterVideoForm = ({
             <Video className="w-10 h-10 text-slate-500"></Video>
           </div>
         ) : (
-          <div className="relative aspect-video mt-2">Video uploaded</div>
+          <div className="relative aspect-video mt-2">
+            <MuxPlayer
+              playbackId={initialData?.muxData?.playbackId || ""}
+            ></MuxPlayer>
+          </div>
         ))}
       {isEditing && (
         <div className="">
