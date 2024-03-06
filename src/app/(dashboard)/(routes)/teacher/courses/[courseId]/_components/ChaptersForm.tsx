@@ -90,7 +90,7 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
         Course Chapter
         <Button variant="ghost" onClick={toggleCreating}>
           {isCreating ? (
-            <>cancel</>
+            <>Cancel</>
           ) : (
             <>
               <PlusCircle className="w-4 h-4 mr-2"></PlusCircle>
