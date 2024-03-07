@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+ previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -57,6 +58,7 @@ model Attachment{
   updatedAt DateTime @updatedAt
   
   @@index([courseId])
+  
 }
 
 model Chapter {
