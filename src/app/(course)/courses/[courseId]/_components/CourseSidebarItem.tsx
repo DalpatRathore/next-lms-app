@@ -41,7 +41,7 @@ const CourseSidebarItem = ({
       )}
       type="button"
     >
-      <div className=" flex items-center gap-x-2 py-4">
+      <div className="flex items-center gap-x-2 py-4">
         <Icon
           size={22}
           className={cn(

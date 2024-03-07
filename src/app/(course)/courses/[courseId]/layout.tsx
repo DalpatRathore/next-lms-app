@@ -60,7 +60,7 @@ const CourseIdLayout = async ({
           progressCount={progressCount}
         ></CourseSidebar>
       </div>
-      <main className="md:pl-80 pt-[80px] h-full">Dakota</main>
+      <main className="md:pl-80 pt-[80px] h-full">{children}</main>
     </div>
   );
 };
