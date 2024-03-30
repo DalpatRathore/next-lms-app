@@ -102,7 +102,11 @@ const CategoryForm = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <ComboBox options={...options} {...field} />
+                    <ComboBox
+                      options={options}
+                      // onChange={() => {}}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
